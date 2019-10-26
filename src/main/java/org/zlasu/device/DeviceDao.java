@@ -12,11 +12,11 @@ public class DeviceDao {
     private List<Device> deviceList = new ArrayList<>();
 
     public DeviceDao() {
-        deviceList.add(new Device(1, 1, "Telefon Janka", "ACTIVE", "PHONE"));
-        deviceList.add(new Device(2, 1, "Telefon Janka 2", "ACTIVE", "PHONE"));
-        deviceList.add(new Device(3, 1, "Telefon Janka 3", "ACTIVE", "PHONE"));
-        deviceList.add(new Device(4, 1, "Telefon Janka 4", "ACTIVE", "PHONE"));
-        deviceList.add(new Device(5, 1, "Telefon Janka 5", "ACTIVE", "PHONE"));
+        deviceList.add(new Device(1, 1, "Rower Janka", "1", "2"));
+        deviceList.add(new Device(2, 1, "Rower Janka 2", "1", "2"));
+        deviceList.add(new Device(3, 1, "Rower Janka 3", "1", "2"));
+        deviceList.add(new Device(4, 1, "Telefon Janka 4", "0", "1"));
+        deviceList.add(new Device(5, 1, "Telefon Janka 5", "0", "1"));
     }
 
     public List<Device> getAll() {
