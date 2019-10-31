@@ -1,0 +1,38 @@
+version: "3"
+services:
+  tomcat:
+    image: bitnami/tomcat:latest
+    environment:
+      - TOMCAT_USERNAME=zlasu
+      - TOMCAT_PASSWORD=qqq123qqq
+    ports:
+      - 0:8080
+    volumes:
+      - ./data_tomcat:/bitnami/tomcat
+    labels:
+      - "traefik.frontend.rule=Host:BUILD_ENV.zlasu.org"
+      - "traefik.docker.network=proxy"
+      - "traefik.port=8080"
+    networks:
+      - BUILD_ENV
+      - proxy
+
+  db_host:
+    image: 'mysql:8'
+    ports:
+      - "0:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: car_workshop
+      MYSQL_USER: car_workshop_user
+      MYSQL_PASSWORD: qqq123
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./data_mysql:/var/lib/mysql/
+    networks:
+      - BUILD_ENV
+
+networks:
+  BUILD_ENV:
+  proxy:
+    external: true
