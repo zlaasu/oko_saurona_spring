@@ -10,11 +10,11 @@ services:
     volumes:
       - ./data_tomcat:/bitnami/tomcat
     labels:
-      - "traefik.frontend.rule=Host:BUILD_ENV.zlasu.org"
+      - "traefik.frontend.rule=Host:okosaurona.zlasu.org"
       - "traefik.docker.network=proxy"
       - "traefik.port=8080"
     networks:
-      - BUILD_ENV
+      - okoSaurona
       - proxy
 
   db_host:
@@ -30,9 +30,9 @@ services:
     volumes:
       - ./data_mysql:/var/lib/mysql/
     networks:
-      - BUILD_ENV
+      - okoSaurona
 
 networks:
-  BUILD_ENV:
+  okoSaurona:
   proxy:
     external: true
